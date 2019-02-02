@@ -147,113 +147,113 @@ void ModelBodyGenRules::inputAdjustmentSize(wstring dataName){
 		// read each line of the file
 		while (!fin.eof())
 		{
-		// read an entire line into memory
-		char buf[MAX_CHARS_PER_LINE];
-		fin.getline(buf, MAX_CHARS_PER_LINE);
-	
-		// parse the line into blank-delimited tokens
-		int n = 0; // a for-loop index
-	
-		// array to store memory addresses of the tokens in buf
-		const char* token[MAX_TOKENS_PER_LINE]={ }; // initialize to 0
-		
-		// parse the line
-		token[0] = strtok(buf, DELIMITER); // first token
-		if (token[0]) // zero if line is blank
-		{
-			for (n = 1; n < MAX_TOKENS_PER_LINE; n++)
+			// read an entire line into memory
+			char buf[MAX_CHARS_PER_LINE];
+			fin.getline(buf, MAX_CHARS_PER_LINE);
+
+			// parse the line into blank-delimited tokens
+			int n = 0; // a for-loop index
+
+			// array to store memory addresses of the tokens in buf
+			const char* token[MAX_TOKENS_PER_LINE]={ }; // initialize to 0
+
+			// parse the line
+			token[0] = strtok(buf, DELIMITER); // first token
+			if (token[0]) // zero if line is blank
 			{
-				token[n] = strtok(0, DELIMITER); // subsequent tokens
-				if (!token[n]) break; // no more tokens
-			}
-		}
-		
-		if(token[0]){
-			if(token[2])
-			{
-
-						dataMeasure[index] = atof(token[2]);	
-						if(std::string(token[0]) == "Circum") 
-						{
-							circumAdjustmentSize[index] = dataMeasure[index];
-						}
-
-						else if(std::string(token[0]) == "Length")
-						{
-							lengthAdjustmentSize[6] = (dataMeasure[index]); 
-						}
-
-						else if(std::string(token[0]) == "Height")
-						{
-							if(std::string(token[1]) == "Stature")
-							{
-								heightAdjustmentSize[0] =  (dataMeasure[index]); 
-							}
-							else if(std::string(token[1])=="Upper_Body_Height")
-							{
-								heightAdjustmentSize[1] =  (dataMeasure[index]); 
-							}
-						}
-
-						else if(std::string(token[0]) == "Breadth")
-						{
-							breadthAdjustmentSize[0] = (dataMeasure[index]);
-						}
-						else if(std::string(token[0]) == "Body_Type")
-						{
-							lengthAdjustmentSize[0] = (dataMeasure[index]);
-						}
-						else
-						{
-
-						}
-						index++;
-			}
-			else{
-				dataMeasure[index] = NULL;	
-						if(std::string(token[0]) == "Circum")
-						{
-							circumAdjustmentSize[index] = dataMeasure[index];
-						}
-
-						else if(std::string(token[0]) == "Length")
-						{
-							lengthAdjustmentSize[6] = (dataMeasure[index]); 
-						}
-
-						else if(std::string(token[0]) == "Height")
-						{
-							if(std::string(token[1]) == "Stature")
-							{
-								heightAdjustmentSize[0] =  (dataMeasure[index]); 
-							}
-							else if(std::string(token[1])=="Upper_Body_Height")
-							{
-								heightAdjustmentSize[1] =  (dataMeasure[index]); 
-							}
-						}
-
-						else if(std::string(token[0]) == "Breadth")
-						{
-							breadthAdjustmentSize[0] = (dataMeasure[index]);
-						}
-						else if(std::string(token[0]) == "Body_Type")
-						{
-							lengthAdjustmentSize[0] = (dataMeasure[index]); 
-						}
-						else
-						{
-
-						}
-						index++;
+				for (n = 1; n < MAX_TOKENS_PER_LINE; n++)
+				{
+					token[n] = strtok(0, DELIMITER); // subsequent tokens
+					if (!token[n]) break; // no more tokens
+				}
 			}
 
-		}
+			if(token[0]){
+				if(token[2])
+				{
+
+					dataMeasure[index] = atof(token[2]);	
+					if(std::string(token[0]) == "Circum") 
+					{
+						circumAdjustmentSize[index] = dataMeasure[index];
+					}
+
+					else if(std::string(token[0]) == "Length")
+					{
+						lengthAdjustmentSize[6] = (dataMeasure[index]); 
+					}
+
+					else if(std::string(token[0]) == "Height")
+					{
+						if(std::string(token[1]) == "Stature")
+						{
+							heightAdjustmentSize[0] =  (dataMeasure[index]); 
+						}
+						else if(std::string(token[1])=="Upper_Body_Height")
+						{
+							heightAdjustmentSize[1] =  (dataMeasure[index]); 
+						}
+					}
+
+					else if(std::string(token[0]) == "Breadth")
+					{
+						breadthAdjustmentSize[0] = (dataMeasure[index]);
+					}
+					else if(std::string(token[0]) == "Body_Type")
+					{
+						lengthAdjustmentSize[0] = (dataMeasure[index]);
+					}
+					else
+					{
+
+					}
+					index++;
+				}
+				else{
+					dataMeasure[index] = NULL;	
+					if(std::string(token[0]) == "Circum")
+					{
+						circumAdjustmentSize[index] = dataMeasure[index];
+					}
+
+					else if(std::string(token[0]) == "Length")
+					{
+						lengthAdjustmentSize[6] = (dataMeasure[index]); 
+					}
+
+					else if(std::string(token[0]) == "Height")
+					{
+						if(std::string(token[1]) == "Stature")
+						{
+							heightAdjustmentSize[0] =  (dataMeasure[index]); 
+						}
+						else if(std::string(token[1])=="Upper_Body_Height")
+						{
+							heightAdjustmentSize[1] =  (dataMeasure[index]); 
+						}
+					}
+
+					else if(std::string(token[0]) == "Breadth")
+					{
+						breadthAdjustmentSize[0] = (dataMeasure[index]);
+					}
+					else if(std::string(token[0]) == "Body_Type")
+					{
+						lengthAdjustmentSize[0] = (dataMeasure[index]); 
+					}
+					else
+					{
+
+					}
+					index++;
+				}
+
+			}
 		if(index == size)
 			break;
-	  }
-  }
-  fin.close();
+	  	}
+  	}
+	fin.close();
 	
 }
 
